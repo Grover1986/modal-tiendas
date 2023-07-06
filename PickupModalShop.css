@@ -1,0 +1,340 @@
+.recojoTienda_container {
+    max-width: 821px;
+    height: 719px;
+    width: 100%;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+.recojoTienda_title {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.004em;
+}
+.recojoTienda_text {
+    padding: 0 14%;
+}
+.recojoTienda_subTitle {
+    margin-top: .5rem;
+    font-weight: 400;
+    line-height: 19px;
+    text-align: center;
+}
+.recojoTienda_close .closeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    color: #000;
+    font-size: 20px;
+    border: none;
+}
+.recojoTienda_tienda,
+.recojoTienda_msg {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.1px;
+    color: #0F191E;
+    margin: 0;
+}
+.recojoTienda_msg {
+    text-align: center;
+    font-weight: 400;
+    width: 70%;
+    margin: auto;
+}
+.recojoTienda_direccion {
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #0F191E;
+}
+.recojoTienda_horario {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #05BE50;
+}
+.recojoTienda_text_mob {
+    margin-top: 2.5rem;
+}
+.recojoTienda_title_mob {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.001em;
+    color: #0F191E;
+}
+.recojoTienda_subTitle_mob {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #0F191E;
+}
+.tabs__container {
+    max-height: 304px;
+    overflow-y: auto;
+    border: 1px solid #D9DADB;
+    border-radius: 8px;
+}
+.tabs__header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.tabs__item {
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.001em;
+    color: #878C8F;
+    padding: 15px 10px;
+    background: #F7F8F8;
+    border: 1px solid #D9DADB;
+}
+.tabs__item.active {
+    background: #fff;
+    border-bottom: 3px solid #009FE3;
+    color: #0F191E;
+}
+.tabs__rowTienda,
+.tabs__rowProvincia {
+    padding: 16px;
+}
+.tabs__rowTienda:nth-child(even),
+.tabs__rowProvincia:nth-child(even) {
+    background: #F7F8F8;
+}
+.table {
+    max-height: 439px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    border-bottom: 1px solid #d9dadb;
+    margin-bottom: 1rem;
+}
+
+.table-row {
+display: flex;
+align-items: center;
+}
+
+.table-colum{
+    flex: 1;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #d9dadb;
+}
+
+.table__content {
+    width: 100%;
+    height: 100%;
+    border-spacing: 0;
+}
+.table__head {
+    background: #fff;
+    border: 1px solid #d9dadb;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.table__head:nth-child(1) {
+    border-right: none;
+    border-radius: 8px 0 0 0;
+    width: 50%;
+}
+.table__head:nth-child(2) {
+    border-radius: 0 8px 0 0;
+    width: 50%;
+}
+.table__head,
+.table__column {
+    padding: 10px 20px 10px;
+}
+.table__row:nth-child(even) {
+    background: #f7f8f8;
+}
+.table__column {
+    text-align: left;
+    font-size: 16px;
+}
+.table__column:nth-child(1) {
+    border-left: 1px solid #d9dadb;
+    border-right: 1px solid #d9dadb;
+}
+.table__column:nth-child(2) {
+    border-right: 1px solid #d9dadb;
+}
+.table__row:last-child .table__column:nth-child(1) {
+    border-radius: 0 0 0 8px;
+}
+.table__row:last-child .table__column:nth-child(2) {
+    border-radius: 0 0 8px 0;
+}
+.table__row.none:nth-child(n+2) .table__column:nth-child(1) .recojoTienda_msg {
+    display: none;
+}
+.table__row.none:nth-child(n+2) .table__column:nth-child(2) .recojoTienda_msg {
+    display: none;
+}
+.table::-webkit-scrollbar {
+    width: 5px;
+}
+.table::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+.table::-webkit-scrollbar-thumb {
+    background-color: #878c8f;
+    border-radius: 6px;
+}
+.table::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+.recojoTienda_search {
+    height: 48px;
+    position: relative;
+    border: 1px solid #D9DADB;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.recojoTienda_search .recojoTienda_btn_search {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 60px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.recojoTienda_search .input_search {
+    height: 100%;
+    padding: 10px;
+    outline: none;
+    color: #0F191E;
+    font-family: 'Rubik';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.001em;
+    position: absolute;
+    left: 45px;
+    right: 0;
+    border: none;
+    border-radius: 4px;
+}
+.recojoTienda_search .input_search::placeholder {
+    font-family: 'Rubik';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.001em;
+    color: #B7BABC;    
+}
+.btn_add {
+    text-align: center;
+    position: absolute;
+    bottom: 2.5%;
+    left: 0;
+    right: 0;
+}
+.btn_add :global(.vtex-button) {
+    width: 190px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+.btn_add :global(.vtex-button .vtex-button__label.ph6) {
+    padding-left: .89rem;
+    padding-right: .89rem;
+}
+:global(.vtex-flex-layout-0-x-flexColChild) :global(.mercury-delivery-details-0-x-triggerContainer) {
+    width: 100%;
+  }
+.openModal_btn {
+    background-color: #009fe3;
+    border-color: #009fe3;
+    color: #fff;
+    border: none;
+    font-family: 'Rubik';
+    font-size: 1rem;
+    width: 100%;
+    display: block;
+    min-height: 3.125rem;
+    border-radius: .25rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.openModal_btn::before {
+    content: " ";
+    background-image: url(/arquivos/car-dk.svg);
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.openModal_btn:hover {
+    background-color: #072c75;
+    border-color: #072c75;
+}
+@media (min-width: 768px) {
+    .recojoTienda_text_mob {
+        display: none;
+    }
+}
+@media (max-width: 767px) {
+    .recojoTienda_container {
+        height: 625px;
+    }
+    .recojoTienda_search {
+        margin-bottom: 30px;
+    }
+    .recojoTienda_subTitle_mob {
+        margin-bottom: 22px;
+    }
+    .recojoTienda_text {
+        display: none;
+    }
+    .recojoTienda_horario {
+        color: #0F191E;
+    }
+    .recojoTienda_msg {
+        width: 74%;
+        padding: 16px 10px;
+    }
+    .tabs__container {
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+    .tabs__header {
+        position: sticky;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+    .tabs__content {
+        max-height: 230px;
+        overflow-y: auto;
+    }
+    .btn_add {
+        bottom: 4%;
+    }
+    .btn_add :global(.vtex-button) {
+        width: 85%;
+    }
+}

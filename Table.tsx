@@ -1,6 +1,5 @@
 import React from "react";
-
-import TableContent from "./TableContent";
+import TiendaInfo from "./TiendaInfo";
 
 interface StoreInfo {
     friendlyName: string;
@@ -19,34 +18,86 @@ interface Store {
 }
 
 interface TableProps {
-    filteredTiendasLima: Store[] | null;
-    filteredTiendasProvincias: Store[] | null;
-    tiendasLima: Store[];
-    tiendasProvincias: Store[];
+    tiendas: Store[];
     handles: Record<string, string | undefined>;
 }
 
-const Table = ({ filteredTiendasLima, filteredTiendasProvincias, tiendasLima, tiendasProvincias, handles }: TableProps) => {
+const msg = {
+    lima: `Al parecer el producto no cuenta con recojo en <strong>tiendas de Lima</strong>. Lo sentimos.`,
+    province: `Al parecer el producto no cuenta con recojo en <strong>tiendas de provincia</strong>. Lo sentimos.`
+};
+
+const Table = ({ tiendas, handles }: TableProps) => {
+
+    const tiendasLima = tiendas.filter((sla: any) => sla.deliveryChannel == "pickup-in-point" && sla.pickupStoreInfo.address.city === 'Lima');
+    const tiendasProvincias = tiendas.filter((sla: any) => sla.deliveryChannel == "pickup-in-point" && sla.pickupStoreInfo.address.city !== 'Lima');
+
     return (
         <table className={handles.table__content}>
             <thead>
                 <tr>
                     <th className={handles.table__head}>
-                        Tiendas Lima ({filteredTiendasLima ? filteredTiendasLima.length : tiendasLima.length})
+                        Tiendas Lima ({tiendasLima.length})
                     </th>
                     <th className={handles.table__head}>
-                        Tiendas provincia ({filteredTiendasProvincias ? filteredTiendasProvincias.length : tiendasProvincias.length})
+                        Tiendas provincia ({tiendasProvincias.length})
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <TableContent
-                    filteredTiendasLima={filteredTiendasLima}
-                    filteredTiendasProvincias={filteredTiendasProvincias}
-                    tiendasLima={tiendasLima}
-                    tiendasProvincias={tiendasProvincias}
-                    handles={handles}
-                />
+                {tiendasLima.length > 0 && tiendasProvincias.length > 0 ? (
+                    <>
+                        {tiendasLima.map((tienda, index) => (
+                            <tr className={handles.table__row} key={index}>
+                                <td className={handles.table__column}>
+                                    <TiendaInfo tienda={tienda} handles={handles} />
+                                </td>
+                                <td className={handles.table__column}>
+                                    <TiendaInfo tienda={tiendasProvincias[index]} handles={handles} />
+                                </td>
+                            </tr>
+                        ))}
+                    </>
+                ) : tiendasLima.length > 0 ? (
+                    <>
+                        {tiendasLima.map((tienda, index) => (
+                            <tr className={`${handles.table__row} ${tiendasLima.length > 1 ? handles.none : handles.table__row}` } key={index}>
+                                <td className={handles.table__column}>
+                                    <TiendaInfo tienda={tienda} handles={handles} />
+                                </td>
+                                <td className={handles.table__column}>
+                                    <TiendaInfo errorMessage={msg.province} handles={handles} />
+                                </td>
+                            </tr>
+                        ))}
+                    </>
+                ) : tiendasProvincias.length > 0 ? (
+                    <>
+                        {tiendasProvincias.map((tienda, index) => (
+                            <tr className={`${handles.table__row} ${tiendasProvincias.length > 1 ? handles.none : handles.table__row}` } key={index}>
+                                <td className={handles.table__column}>
+                                    <TiendaInfo errorMessage={msg.lima} handles={handles}  />
+                                </td>
+                                <td className={handles.table__column}>
+                                    <TiendaInfo tienda={tienda} handles={handles} />
+                                </td>
+                            </tr>
+                        ))}
+                    </>
+                ) : (
+                    <tr className={handles.table__row}>
+                        <td className={handles.table__column}>
+                            <TiendaInfo errorMessage={msg.lima} handles={handles} />
+                        </td>
+                        <td className={handles.table__column}>
+                            {tiendasProvincias.length > 0 ? (
+                                <TiendaInfo tienda={tiendasProvincias[0]} handles={handles} />
+                            ) : (
+                                <TiendaInfo errorMessage={msg.province} handles={handles} />
+                            )}
+                        </td>
+                    </tr>
+                )}
             </tbody>
         </table>
     );

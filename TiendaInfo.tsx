@@ -23,17 +23,9 @@ interface TiendaInfoProps {
     errorMessage?: string;
 }
 
-const TiendaInfo = ({ tienda, handles, errorMessage }: TiendaInfoProps) => {
+const TiendaInfo = ({ tienda, handles, errorMessage = ''}: TiendaInfoProps) => {
 
-    if (!tienda) {
-        return (
-            <td className={handles.table__column}>
-                <p className={handles.recojoTienda_msg}>
-                    {errorMessage}
-                </p>
-            </td>
-        );
-    }
+    if (!tienda) return <p className={handles.recojoTienda_msg} dangerouslySetInnerHTML={{__html:errorMessage}} />
 
     return (
         <>
